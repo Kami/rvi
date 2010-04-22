@@ -159,7 +159,7 @@ Directory and file names:
   --localstatedir=DIR     modifiable single-machine data in DIR [PREFIX/var]
   --libdir=DIR            object code libraries in DIR [EPREFIX/lib]
   --includedir=DIR        C header files in DIR [PREFIX/include]
-  --oldincludedir=DIR     C header files for non-gcc in DIR [/usr/include]
+  --oldincludedir=DIR     C header files for non-g++ in DIR [/usr/include]
   --infodir=DIR           info documentation in DIR [PREFIX/info]
   --mandir=DIR            man documentation in DIR [PREFIX/man]
   --srcdir=DIR            find the sources in DIR [configure dir or ..]
@@ -522,8 +522,8 @@ fi
 
 
 
-# Extract the first word of "gcc", so it can be a program name with args.
-set dummy gcc; ac_word=$2
+# Extract the first word of "g++", so it can be a program name with args.
+set dummy g++; ac_word=$2
 echo $ac_n "checking for $ac_word""... $ac_c" 1>&6
 echo "configure:529: checking for $ac_word" >&5
 if eval "test \"`echo '$''{'ac_cv_prog_CC'+set}'`\" = set"; then
@@ -537,7 +537,7 @@ else
   for ac_dir in $ac_dummy; do
     test -z "$ac_dir" && ac_dir=.
     if test -f $ac_dir/$ac_word; then
-      ac_cv_prog_CC="gcc"
+      ac_cv_prog_CC="g++"
       break
     fi
   done
@@ -701,12 +701,12 @@ else
 fi
 fi
 
-echo "$ac_t""$ac_cv_prog_gcc" 1>&6
+echo "$ac_t""$ac_cv_prog_g++" 1>&6
 
 if test $ac_cv_prog_gcc = yes; then
-  GCC=yes
+  gcc=yes
 else
-  GCC=
+  gcc=
 fi
 
 ac_test_CFLAGS="${CFLAGS+set}"
@@ -731,13 +731,13 @@ echo "$ac_t""$ac_cv_prog_cc_g" 1>&6
 if test "$ac_test_CFLAGS" = set; then
   CFLAGS="$ac_save_CFLAGS"
 elif test $ac_cv_prog_cc_g = yes; then
-  if test "$GCC" = yes; then
+  if test "$g++" = yes; then
     CFLAGS="-g -O2"
   else
     CFLAGS="-g"
   fi
 else
-  if test "$GCC" = yes; then
+  if test "$g++" = yes; then
     CFLAGS="-O2"
   else
     CFLAGS=
@@ -1068,8 +1068,8 @@ else
 /* System header to define __stub macros and hopefully few prototypes,
     which can conflict with char $ac_func(); below.  */
 #include <assert.h>
-/* Override any gcc2 internal prototype to avoid an error.  */
-/* We use char because int might match the return type of a gcc2
+/* Override any g++2 internal prototype to avoid an error.  */
+/* We use char because int might match the return type of a g++2
     builtin and then its argument prototype would still apply.  */
 char $ac_func();
 

@@ -11,8 +11,12 @@ VPATH = @srcdir@
 .SUFFIXES:
 .SUFFIXES: .cc .o
 
+PYTHON_VER=python2.6
+PYTHON_HEADERS=/usr/local/include
+PYTHON_LIBS=/usr/local/lib/$(PYTHON_VER)/config
+
 CC = @CC@
-CFLAGS = -I. @CFLAGS@
+CFLAGS = -I$(PYTHON_HEADERS) @CFLAGS@
 LDFLAGS = @LDFLAGS@
 LIBS = @LIBS@
 INSTALL = @INSTALL@
@@ -37,7 +41,7 @@ uninstall:
 	/bin/rm -rf $(docdir)
 
 rvi	:
-	$(CC) $(CFLAGS) -o rvi $(SOURCES) $(LIBS)
+	$(CC) $(CFLAGS) -o rvi $(SOURCES) $(LIBS) -L$(PYTHON_LIBS) -l$(PYTHON_VER)
 
 clean: 
 	/bin/rm -f core *.o rvi
